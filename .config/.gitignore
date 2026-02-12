@@ -1,0 +1,4 @@
+.DS_Store
+nushell/history.txt
+karabiner/automatic_backups/
+*.bak

@@ -1,0 +1,13 @@
+layout {
+    pane stacked=true {
+        pane expanded=true {
+            command "nvim"
+        }
+        pane {
+            name "dev server"
+        }
+    }
+    pane size=1 borderless=true {
+        plugin location="status-bar"
+    }
+}
