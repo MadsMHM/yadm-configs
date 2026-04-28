@@ -30,11 +30,11 @@ return {
       -- If ESLint config exists, use Prettier for formatting + eslint_d for lint fixes
       -- Otherwise use Biome for both
       if has_eslint_config() then
-        opts.formatters_by_ft.javascript = { "prettier", "eslint_d" }
-        opts.formatters_by_ft.javascriptreact = { "prettier", "eslint_d" }
-        opts.formatters_by_ft.typescript = { "prettier", "eslint_d" }
-        opts.formatters_by_ft.typescriptreact = { "prettier", "eslint_d" }
-        opts.formatters_by_ft.svelte = { "prettier", "eslint_d" }
+        opts.formatters_by_ft.javascript = { "prettier" }
+        opts.formatters_by_ft.javascriptreact = { "prettier" }
+        opts.formatters_by_ft.typescript = { "prettier" }
+        opts.formatters_by_ft.typescriptreact = { "prettier" }
+        opts.formatters_by_ft.svelte = { "prettier" }
         opts.formatters_by_ft.json = { "prettier" }
         opts.formatters_by_ft.jsonc = { "prettier" }
       else
