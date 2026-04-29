@@ -108,13 +108,15 @@ if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
 fi
 
 # ---- Starship Prompt (cached, keep at end) ----
-STARSHIP_CACHE="$HOME/.cache/starship.zsh"
-if [[ ! -f "$STARSHIP_CACHE" ]]; then
-    starship init zsh > "$STARSHIP_CACHE"
+# NOTE: do not name this STARSHIP_CACHE — that env var is read by starship
+# itself as its log/cache *directory*, and a file at that path makes it error.
+_STARSHIP_INIT_CACHE="$HOME/.cache/starship.zsh"
+if [[ ! -f "$_STARSHIP_INIT_CACHE" ]]; then
+    starship init zsh > "$_STARSHIP_INIT_CACHE"
 fi
-source "$STARSHIP_CACHE"
+source "$_STARSHIP_INIT_CACHE"
 
 
-# Vite+ bin (https://viteplus.dev)
-. "$HOME/.vite-plus/env"
+# Vite+ bin (https://viteplus.dev) — optional, only if installed
+[[ -f "$HOME/.vite-plus/env" ]] && . "$HOME/.vite-plus/env"
 export PATH="$HOME/.local/bin:$PATH"
