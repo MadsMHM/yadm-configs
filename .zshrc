@@ -101,8 +101,11 @@ source "$ZOXIDE_CACHE"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# ---- Zellij ----
-eval "$(zellij setup --generate-auto-start zsh)"
+# ---- Tmux ----
+# Auto-start tmux if not already inside a tmux session
+if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+    tmux attach -t default 2>/dev/null || tmux new-session -s default
+fi
 
 # ---- Starship Prompt (cached, keep at end) ----
 STARSHIP_CACHE="$HOME/.cache/starship.zsh"
@@ -111,3 +114,7 @@ if [[ ! -f "$STARSHIP_CACHE" ]]; then
 fi
 source "$STARSHIP_CACHE"
 
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
+export PATH="$HOME/.local/bin:$PATH"
