@@ -1,0 +1,10 @@
+customCommands:
+  - key: 'P'
+    description: 'Checkout PR by number'
+    command: 'gh pr checkout {{.Form.PRNumber}}'
+    context: 'global'
+    prompts:
+      - type: 'input'
+        title: 'PR number'
+        key: 'PRNumber'
+    loadingText: 'Checking out PR...'

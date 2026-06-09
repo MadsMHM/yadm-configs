@@ -5,6 +5,8 @@ prSections:
       filters: is:open review-requested:@me
     - title: Involved
       filters: is:open involves:@me -author:@me
+    - title: All Open (mhm)
+      filters: is:open org:mediehusenemidtjylland archived:false
 issuesSections:
     - title: My Issues
       filters: is:open author:@me
@@ -77,7 +79,8 @@ defaults:
                 hidden: true
     refetchIntervalMinutes: 30
 keybindings: {}
-repoPaths: {}
+repoPaths:
+    mediehusenemidtjylland/*: /Users/madsskautrupjacobsen/Desktop/dev/*
 theme:
     ui:
         sectionsShowCount: true
