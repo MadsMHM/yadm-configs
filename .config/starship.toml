@@ -23,6 +23,15 @@ $cmd_duration\
 $line_break\
 $time"""
 
+# Some segment styles below use catppuccin color names — define them,
+# otherwise starship silently drops the styling.
+palette = 'custom'
+
+[palettes.custom]
+crust = "#11111b"
+sapphire = "#74c7ec"
+lavender = "#b4befe"
+
 
 [directory]
 style = "fg:#e3e5e5 bg:#769ff0"

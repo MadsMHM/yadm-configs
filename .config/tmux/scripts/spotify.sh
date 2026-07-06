@@ -1,4 +1,7 @@
 #!/bin/sh
+# Bail before launching osascript at all when Spotify is closed — Apple Events
+# can block for seconds and this runs on every status-bar refresh.
+pgrep -xq Spotify || exit 0
 osascript -e '
 if application "Spotify" is running then
   tell application "Spotify"
