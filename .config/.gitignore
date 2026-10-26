@@ -5,3 +5,13 @@ github-copilot/
 gh/
 configstore/
 *.bak
+# Stray npm install in ~/.config, never config
+/node_modules/
+/package.json
+/package-lock.json
+# Raycast store extensions are reinstalled by Raycast; settings live in its own export
+/raycast/
+# cagent runtime marker
+/cagent/
+# Sentry CLI cache/db (may hold auth)
+/sentry/

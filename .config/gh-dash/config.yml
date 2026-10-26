@@ -78,7 +78,11 @@ defaults:
                 width: 20
                 hidden: true
     refetchIntervalMinutes: 30
-keybindings: {}
+keybindings:
+    universal:
+        - key: g
+          name: lazygit
+          command: cd {{.RepoPath}}; lazygit
 repoPaths:
     mediehusenemidtjylland/*: /Users/madsskautrupjacobsen/Desktop/dev/*
 theme:
@@ -88,7 +92,7 @@ theme:
             showSeparator: true
             compact: false
 pager:
-    diff: ""
+    diff: delta
 confirmQuit: false
 showAuthorIcons: true
 smartFilteringAtLaunch: true

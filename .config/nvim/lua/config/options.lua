@@ -5,6 +5,11 @@
 -- -- This sets the terminal title when Neovim starts
 -- vim.opt.title = true
 --
+vim.filetype.add({
+  extension = { tf = "terraform" },
+  -- Playbooks outside playbooks/ or roles/ aren't detected by nvim-ansible, so ansiblels never attaches
+  pattern = { [".*/ansible/.*%.ya?ml"] = "yaml.ansible" },
+})
 -- -- Capitalize first letter
 -- local function capitalize(str)
 --   return (str:gsub("^%l", string.upper))
