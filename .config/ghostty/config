@@ -47,7 +47,7 @@ keybind = alt+super+h=unbind
 shell-integration = zsh
 clipboard-read = allow
 clipboard-write = allow
-copy-on-select = true
+copy-on-select = clipboard
 window-subtitle = working-directory
 theme = TokyoNight Night
 background-blur=true
@@ -57,7 +57,11 @@ mouse-hide-while-typing = true
 font-family = JetBrainsMono Nerd Font Mono
 auto-update = download
 macos-titlebar-style = hidden
-window-padding-x = 14
+window-padding-x = 6
+# top,bottom: keeps tmux's status bar off the rounded window corners
+window-padding-y = 6,2
+# spread leftover cell space evenly instead of dumping it right/bottom
+window-padding-balance = true
 window-padding-color = extend
 
 keybind = shift+enter=text:\x1b\r

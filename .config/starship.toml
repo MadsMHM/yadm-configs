@@ -1,12 +1,11 @@
 "$schema" = "https://starship.rs/config-schema.json"
 
-# One line: bolt, dir, branch, status, lang versions, ❯ — Tokyo Night colors, no blocks
+# One line: bolt, dir, branch, lang versions, ❯ — Tokyo Night colors, no blocks
 add_newline = false
 format = """\
 [ ](orange)\
 $directory\
 $git_branch\
-$git_status\
 $nodejs\
 $bun\
 $rust\
@@ -31,8 +30,8 @@ red = "#f7768e"
 [directory]
 style = "bold blue"
 format = "[$path]($style)[$read_only]($read_only_style) "
-truncation_length = 3
-truncation_symbol = "…/"
+truncation_length = 1
+truncation_symbol = ""
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -45,10 +44,6 @@ truncation_symbol = "…/"
 symbol = ""
 format = "[$symbol $branch]($style) "
 style = "magenta"
-
-[git_status]
-format = "([$all_status$ahead_behind]($style) )"
-style = "red"
 
 [nodejs]
 symbol = ""
@@ -74,8 +69,6 @@ style = "cyan"
 [cmd_duration]
 format = "[ $duration]($style) "
 style = "comment"
-show_notifications = true
-min_time_to_notify = 45000
 
 [character]
 success_symbol = "[❯](bold green)"

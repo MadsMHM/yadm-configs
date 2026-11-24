@@ -83,6 +83,11 @@ keybindings:
         - key: g
           name: lazygit
           command: cd {{.RepoPath}}; lazygit
+    prs:
+        # check out the PR and open diffnav in a "#<pr>" tab in the repo's Rex session
+        - key: D
+          name: review in Rex
+          command: ~/.config/rex/scripts/review.sh '{{.RepoPath}}' '{{.RepoName}}' {{.PrNumber}}
 repoPaths:
     mediehusenemidtjylland/*: /Users/madsskautrupjacobsen/Desktop/dev/*
 theme:
@@ -91,8 +96,24 @@ theme:
         table:
             showSeparator: true
             compact: false
+    # Tokyo Night Storm, as Rex
+    colors:
+        text:
+            primary: "#c0caf5"
+            secondary: "#7aa2f7"
+            inverted: "#24283b"
+            faint: "#565f89"
+            warning: "#e0af68"
+            success: "#9ece6a"
+            error: "#f7768e"
+        background:
+            selected: "#292e42"
+        border:
+            primary: "#7aa2f7"
+            secondary: "#3b4261"
+            faint: "#292e42"
 pager:
-    diff: delta
+    diff: diffnav
 confirmQuit: false
 showAuthorIcons: true
 smartFilteringAtLaunch: true

@@ -129,6 +129,8 @@ style = "compact"
 #   "^secret-cmd",
 #   "^innocuous-cmd .*--secret=.+",
 # ]
+# `secret` is the zsh alias for `openssl rand -hex 32` (see ~/.zshrc)
+history_filter = ["^secret( |$)"]
 
 ## prevent commands run with cwd matching any of these regexes from being written
 ## to history. Note that these regular expressions are unanchored, i.e. if they don't

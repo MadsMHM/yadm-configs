@@ -1,0 +1,13 @@
+[display]
+compact = true
+
+[updates]
+auto_update = true
+
+[directories]
+# my own pages: foo.page.md = new page, foo.patch.md = appended to the official foo page
+custom_pages_dir = "/Users/madsskautrupjacobsen/.config/tldr"
+
+[search]
+# OS locale is Danish; without this some pages render in Danish
+languages = ["en"]

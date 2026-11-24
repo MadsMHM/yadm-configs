@@ -24,3 +24,27 @@ vim.api.nvim_create_autocmd("SwapExists", {
     vim.v.swapchoice = "d"
   end,
 })
+
+-- Copy the fenced code block under the cursor (contents only, no ``` fences) to the
+-- system clipboard, like the copy button in the Obsidian app.
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("md_copy_codeblock", { clear = true }),
+  pattern = "markdown",
+  callback = function(ev)
+    vim.keymap.set("n", "<leader>oc", function()
+      -- ignore_injections: get the markdown node, not the bash/json tree injected inside the block
+      local node = vim.treesitter.get_node({ ignore_injections = true })
+      while node and node:type() ~= "fenced_code_block" do
+        node = node:parent()
+      end
+      for child in (node and node:iter_children() or function() end) do
+        if child:type() == "code_fence_content" then
+          -- trailing newline stripped so pasting into a shell doesn't run it
+          vim.fn.setreg("+", (vim.treesitter.get_node_text(child, ev.buf):gsub("\n+$", "")))
+          return vim.notify("Copied code block")
+        end
+      end
+      vim.notify("Not in a code block", vim.log.levels.WARN)
+    end, { buffer = ev.buf, desc = "Copy code block" })
+  end,
+})

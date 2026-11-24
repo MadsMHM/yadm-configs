@@ -5,6 +5,12 @@
 -- -- This sets the terminal title when Neovim starts
 -- vim.opt.title = true
 --
+-- No "ƒ GET" symbol breadcrumb in lualine
+vim.g.trouble_lualine = false
+
+-- Notes are mixed English/Danish; a word is OK if valid in either. Danish dict lives in ~/.local/share/nvim/site/spell
+vim.opt.spelllang = { "en", "da" }
+
 vim.filetype.add({
   extension = { tf = "terraform" },
   -- Playbooks outside playbooks/ or roles/ aren't detected by nvim-ansible, so ansiblels never attaches
